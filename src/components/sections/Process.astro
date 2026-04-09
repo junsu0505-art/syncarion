@@ -1,0 +1,106 @@
+---
+// Process section — 4-step workflow
+---
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">진단에서 운영까지,<br>한 팀이 책임집니다</h2>
+    <p class="section-desc">
+      코드만 짜주는 외주가 아닙니다. 사업 구조를 이해하고, AI가 실제로 돈을 벌어주는 지점을 찾아 설계합니다.
+    </p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>사업 진단</h3>
+        <p>현재 운영 구조를 분석하고, AI로 자동화·최적화할 수 있는 포인트를 맵핑합니다.</p>
+        <span class="step-tag">1~2주</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>시스템 설계</h3>
+        <p>비용 대비 효과가 가장 높은 순서로 구현 로드맵을 설계합니다. 기술 선택, 연동 구조, 데이터 흐름까지.</p>
+        <span class="step-tag">1~2주</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>구축 & 납품</h3>
+        <p>Claude, GPT, Gemini 등 최적의 AI 모델을 활용해 실제 작동하는 시스템을 구축합니다.</p>
+        <span class="step-tag">2~6주</span>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>운영 & 확장</h3>
+        <p>월정액 유지보수로 안정적인 운영을 보장하고, 새로운 자동화 포인트를 지속 확장합니다.</p>
+        <span class="step-tag">Ongoing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .process-step {
+    position: relative;
+    padding: 48px 32px;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .process-step:first-child {
+    border-left: none;
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-accent);
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .process-step h3 {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .process-step p {
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    line-height: 1.7;
+  }
+
+  .step-tag {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 4px 12px;
+    background: var(--color-accent-dim);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 768px) {
+    .process-steps {
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--color-border);
+    }
+
+    .process-step {
+      border-left: none;
+      background: var(--color-bg);
+    }
+  }
+</style>

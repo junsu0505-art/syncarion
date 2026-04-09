@@ -1,4 +1,20 @@
+# dependencies
 node_modules
-.vercel
+
+# environment
 .env
-.env.local
+.env.*
+!.env.example
+
+# vercel
+.vercel
+
+# operational notes (local only — never commit)
+PROGRESS.md
+HANDOFF.md
+notes/
+*.local.md
+
+# astro build output
+dist/
+.astro/

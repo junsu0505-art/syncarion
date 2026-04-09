@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/blog/PostCard.astro';
+import { getCollection } from 'astro:content';
+import { CATEGORIES, type CategorySlug } from '../../../consts';
+
+export function getStaticPaths() {
+  const slugs = Object.keys(CATEGORIES) as CategorySlug[];
+  return slugs.map((category) => ({
+    params: { category },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props as { category: CategorySlug };
+const info = CATEGORIES[category];
+
+const posts = await getCollection('blog', ({ data }) =>
+  data.category === category && !data.draft
+);
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = Object.entries(CATEGORIES) as [CategorySlug, typeof CATEGORIES[CategorySlug]][];
+---
+
+<BaseLayout title={`${info.label} — Syncarion 블로그`} description={info.description}>
+  <main class="blog-index">
+    <div class="container">
+      <header class="blog-header">
+        <div class="section-label">{info.label}</div>
+        <h1 class="section-title">{info.description}</h1>
+      </header>
+
+      <nav class="category-nav">
+        <a href="/blog" class="cat-link">전체</a>
+        {categories.map(([slug, catInfo]) => (
+          <a
+            href={`/blog/category/${slug}`}
+            class:list={['cat-link', { active: slug === category }]}
+          >{catInfo.label}</a>
+        ))}
+      </nav>
+
+      <div class="post-list">
+        {posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            tags={post.data.tags}
+            slug={post.slug}
+            featured={post.data.featured}
+          />
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <p class="empty">이 카테고리에 게시된 글이 없습니다.</p>
+      )}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-index {
+    padding: 160px 0 80px;
+  }
+
+  .blog-header {
+    margin-bottom: 48px;
+  }
+
+  .category-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .cat-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    padding: 6px 16px;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .cat-link:hover,
+  .cat-link.active {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    padding: 48px 0;
+  }
+</style>

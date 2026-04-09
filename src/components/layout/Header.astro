@@ -1,0 +1,155 @@
+---
+// Header / Navigation component
+// Extracted from legacy index.astro — Phase 1-2
+---
+
+<nav id="nav">
+  <div class="container">
+    <a href="/" class="logo"><img src="/logo.png" alt="Syncarion" class="logo-img"> Syncarion<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#process">프로세스</a></li>
+      <li><a href="#services">서비스</a></li>
+      <li><a href="#credentials">신뢰</a></li>
+      <li><a href="#contact" class="nav-cta">상담 신청</a></li>
+    </ul>
+    <button class="mobile-toggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const toggle = nav.querySelector('.mobile-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('menu-open');
+      });
+    }
+  }
+</script>
+
+<style is:global>
+  /* Nav */
+  nav#nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 24px 0;
+    transition: all 0.4s ease;
+  }
+
+  nav#nav.scrolled {
+    background: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 0;
+  }
+
+  nav#nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img {
+    height: 36px;
+    width: auto;
+  }
+
+  .logo span {
+    color: var(--color-accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--color-text-dim);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--color-accent); }
+
+  .nav-cta {
+    padding: 8px 24px;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent) !important;
+    font-size: 0.8125rem !important;
+    letter-spacing: 0.04em;
+    transition: all 0.3s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-accent) !important;
+    color: var(--color-bg) !important;
+  }
+
+  /* Mobile hamburger */
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--color-text);
+    margin: 5px 0;
+    transition: all 0.3s;
+  }
+
+  /* Responsive nav */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+
+    nav#nav.menu-open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 12, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--color-border);
+      gap: 20px;
+    }
+  }
+</style>
