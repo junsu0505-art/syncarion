@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* ─── Tailwind Theme Integration ───
+   Expose main tokens to Tailwind utilities.
+   Usage: bg-canvas, text-primary, border-subtle, font-display, etc.
+─── */
+@theme inline {
+  --color-canvas: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-elevated: var(--color-surface-2);
+  --color-subtle: var(--color-border);
+  --color-primary: var(--color-text);
+  --color-secondary: var(--color-text-dim);
+  --color-tertiary: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-dim: var(--color-accent-dim);
+  --color-accent-glow: var(--color-accent-glow);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* ─── Reset + Base ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}

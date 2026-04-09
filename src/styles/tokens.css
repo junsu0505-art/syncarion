@@ -1,0 +1,46 @@
+/* ─── Design Token System ───
+   2-layer mapping: ref tokens (source) → main tokens (components)
+   Components must ONLY use main tokens. Never reference --ref-* directly.
+
+   Sources:
+   - Resend (dark base): layout, typography, neutrals
+   - Claude (warm accent): accent color, editorial depth
+─── */
+
+:root {
+  /* ═══ Ref Tokens ═══ */
+
+  /* Resend-inspired dark base */
+  --ref-resend-bg-canvas: #0a0a0c;
+  --ref-resend-bg-surface: #111115;
+  --ref-resend-bg-elevated: #1a1a20;
+  --ref-resend-border-default: #2a2a32;
+  --ref-resend-text-primary: #e8e8ec;
+  --ref-resend-text-secondary: #8a8a96;
+  --ref-resend-text-tertiary: #5a5a66;
+
+  /* Claude-inspired warm accent */
+  --ref-claude-accent-warm: #c4a882;
+  --ref-claude-accent-warm-dim: rgba(196, 168, 130, 0.12);
+  --ref-claude-accent-warm-glow: rgba(196, 168, 130, 0.06);
+
+  /* Typography */
+  --ref-resend-font-display: 'Instrument Serif', Georgia, serif;
+  --ref-resend-font-body: 'Noto Sans KR', -apple-system, sans-serif;
+  --ref-resend-font-mono: 'JetBrains Mono', monospace;
+
+  /* ═══ Main Tokens (components use ONLY these) ═══ */
+  --color-bg: var(--ref-resend-bg-canvas);
+  --color-surface: var(--ref-resend-bg-surface);
+  --color-surface-2: var(--ref-resend-bg-elevated);
+  --color-border: var(--ref-resend-border-default);
+  --color-text: var(--ref-resend-text-primary);
+  --color-text-dim: var(--ref-resend-text-secondary);
+  --color-text-muted: var(--ref-resend-text-tertiary);
+  --color-accent: var(--ref-claude-accent-warm);
+  --color-accent-dim: var(--ref-claude-accent-warm-dim);
+  --color-accent-glow: var(--ref-claude-accent-warm-glow);
+  --font-display: var(--ref-resend-font-display);
+  --font-body: var(--ref-resend-font-body);
+  --font-mono: var(--ref-resend-font-mono);
+}
