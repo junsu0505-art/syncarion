@@ -1,0 +1,115 @@
+---
+// Services section — pricing/offerings
+---
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">필요한 만큼만,<br>정확하게</h2>
+    <p class="section-desc">
+      상황에 맞는 서비스를 선택하세요. 진단만 받아도 방향이 잡힙니다.
+    </p>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>AI 진단</h3>
+        <div class="service-price">상담 후 책정</div>
+        <p>사업 운영 구조를 분석하고, AI 도입 포인트와 예상 효과를 리포트로 제공합니다.</p>
+        <ul class="service-features">
+          <li>현재 운영 프로세스 분석</li>
+          <li>자동화 가능 영역 맵핑</li>
+          <li>비용 절감 예상치 산출</li>
+          <li>구현 로드맵 제안</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>시스템 구축</h3>
+        <div class="service-price">프로젝트 단위</div>
+        <p>진단 결과를 바탕으로 실제 작동하는 AI 시스템을 설계하고 구축합니다.</p>
+        <ul class="service-features">
+          <li>맞춤형 AI 파이프라인 구축</li>
+          <li>기존 시스템 연동</li>
+          <li>테스트 및 최적화</li>
+          <li>사용자 교육 및 문서화</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>운영 유지보수</h3>
+        <div class="service-price">월정액</div>
+        <p>구축한 시스템의 안정적 운영을 보장하고, 지속적으로 개선·확장합니다.</p>
+        <ul class="service-features">
+          <li>시스템 모니터링 & 장애 대응</li>
+          <li>API 변경 대응</li>
+          <li>신규 자동화 추가</li>
+          <li>월간 성과 리포트</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+  }
+
+  .service-card {
+    background: var(--color-bg);
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .service-price {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+  }
+
+  .service-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-dim);
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .service-features li {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .service-features li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
