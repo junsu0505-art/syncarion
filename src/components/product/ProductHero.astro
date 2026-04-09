@@ -1,0 +1,85 @@
+---
+import { STATUS_LABELS, type Product } from '../../consts';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const statusInfo = STATUS_LABELS[product.status];
+---
+
+<header class="product-hero">
+  <div class="container">
+    <div class="hero-meta">
+      <span class="status-badge" style={`color: ${statusInfo.color}; border-color: ${statusInfo.color}`}>
+        {statusInfo.label}
+      </span>
+      <a href="/products" class="back-link">&larr; 제품 목록</a>
+    </div>
+    <h1>{product.name}</h1>
+    <p class="tagline">{product.tagline}</p>
+    <p class="description">{product.description}</p>
+    {product.url && (
+      <a href={product.url} target="_blank" class="btn-primary">
+        사이트 방문 &rarr;
+      </a>
+    )}
+  </div>
+</header>
+
+<style>
+  .product-hero {
+    padding: 160px 0 80px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    padding: 4px 12px;
+    border: 1px solid;
+  }
+
+  .back-link {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .tagline {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 1.125rem;
+    color: var(--color-text-dim);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+</style>

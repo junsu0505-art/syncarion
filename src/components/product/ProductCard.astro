@@ -1,0 +1,115 @@
+---
+import { STATUS_LABELS, type Product } from '../../consts';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const statusInfo = STATUS_LABELS[product.status];
+---
+
+<a href={`/products/${product.slug}`} class="product-card">
+  <div class="card-header">
+    <h3 class="card-name">{product.name}</h3>
+    <span class="status-badge" style={`color: ${statusInfo.color}; border-color: ${statusInfo.color}`}>
+      {statusInfo.label}
+    </span>
+  </div>
+  <p class="card-tagline">{product.tagline}</p>
+  <p class="card-desc">{product.description}</p>
+  <ul class="card-features">
+    {product.features.slice(0, 3).map((f) => (
+      <li>{f}</li>
+    ))}
+  </ul>
+  <span class="card-cta">자세히 보기 &rarr;</span>
+</a>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 36px;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: all 0.3s;
+    background: var(--color-surface);
+  }
+
+  .product-card:hover {
+    border-color: var(--color-accent);
+    background: var(--color-surface-2);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .card-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+  }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  .card-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+
+  .card-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-dim);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .card-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 0;
+  }
+
+  .card-features li {
+    font-size: 0.8125rem;
+    color: var(--color-text-dim);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .card-features li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .card-cta {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    transition: opacity 0.2s;
+  }
+
+  .product-card:hover .card-cta {
+    opacity: 0.8;
+  }
+</style>
