@@ -20,6 +20,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 const ogImageURL = new URL(ogImage, SITE_URL);
+const adsenseId = import.meta.env.PUBLIC_ADSENSE_ID;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -72,6 +73,14 @@ const jsonLd = {
   )}
   <!-- Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <!-- AdSense -->
+  {adsenseId && (
+    <script
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+      crossorigin="anonymous"
+    />
+  )}
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import AdSlot from '../components/ads/AdSlot.astro';
 import '../styles/prose.css';
 import { formatDate } from '../lib/date';
 import { CATEGORIES, SITE_URL } from '../consts';
@@ -53,6 +54,7 @@ const articleJsonLd = {
       <div class="prose">
         <slot />
       </div>
+      <AdSlot slot="post-bottom" format="horizontal" />
       {updatedDate && (
         <p class="updated-note">
           마지막 수정: {formatDate(updatedDate)}
