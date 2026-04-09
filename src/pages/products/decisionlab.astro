@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductHero from '../../components/product/ProductHero.astro';
+import { PRODUCTS } from '../../consts';
+
+const product = PRODUCTS.find((p) => p.slug === 'decisionlab')!;
+---
+
+<BaseLayout title={`${product.name} — Syncarion`} description={product.description}>
+  <ProductHero product={product} />
+
+  <section class="product-detail">
+    <div class="container">
+      <div class="detail-grid">
+        <div class="detail-content">
+          <h2>데이터가 말하게 하고, 사람이 결정합니다</h2>
+          <p>
+            투자 의사결정에 필요한 데이터를 자동으로 수집하고,
+            AI가 기술적 분석을 수행합니다. 매물대 탐지, 추세선 분석,
+            시장 심리 지표까지 — 분석은 AI가, 최종 결정은 투자자가 합니다.
+          </p>
+          <p>
+            단순 차트 앱이 아닌, 의사결정을 위한 도구를 만들고 있습니다.
+          </p>
+        </div>
+        <div class="detail-features">
+          <h3>주요 기능</h3>
+          <ul>
+            {product.features.map((f) => <li>{f}</li>)}
+          </ul>
+          <div class="status-note">
+            <span class="label">현재 상태</span>
+            <span>내부 테스트 및 데이터 파이프라인 구축 중</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-cta">
+    <div class="container">
+      <h2>관심이 있으시다면</h2>
+      <p>DecisionLab 개발 소식과 투자 인사이트를 블로그에서 공유하고 있습니다.</p>
+      <a href="/blog/category/investing" class="btn-primary">투자 블로그 보기 →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .product-detail {
+    padding: 80px 0;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .detail-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .detail-content p {
+    font-size: 1rem;
+    color: var(--color-text-dim);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .detail-features h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .detail-features ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .detail-features li {
+    font-size: 0.9375rem;
+    color: var(--color-text-dim);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .detail-features li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .status-note {
+    padding: 16px 20px;
+    border: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+  }
+
+  .status-note .label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .product-cta {
+    padding: 80px 0;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .product-cta h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .product-cta p {
+    color: var(--color-text-dim);
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+</style>

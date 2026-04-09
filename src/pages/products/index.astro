@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/product/ProductCard.astro';
+import { PRODUCTS } from '../../consts';
+---
+
+<BaseLayout title="제품 — Syncarion" description="투자 도구와 개발 솔루션. Syncarion이 만들고 운영하는 제품들.">
+  <main class="products-index">
+    <div class="container">
+      <header class="products-header">
+        <div class="section-label">Products</div>
+        <h1 class="section-title">직접 만들고,<br>직접 운영합니다</h1>
+        <p class="section-desc">투자 도구와 개발 솔루션. 배우면서 만들고, 만들면서 검증합니다.</p>
+      </header>
+
+      <div class="product-grid">
+        {PRODUCTS.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .products-index {
+    padding: 160px 0 80px;
+  }
+
+  .products-header {
+    margin-bottom: 64px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--color-border);
+  }
+
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
