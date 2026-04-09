@@ -1,0 +1,49 @@
+---
+import { formatDate } from '../../lib/date';
+import CategoryBadge from './CategoryBadge.astro';
+import type { CategorySlug } from '../../consts';
+
+interface Props {
+  pubDate: Date;
+  category: CategorySlug;
+  tags?: string[];
+}
+
+const { pubDate, category, tags = [] } = Astro.props;
+---
+
+<div class="post-meta">
+  <CategoryBadge category={category} />
+  <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+  {tags.length > 0 && (
+    <div class="meta-tags">
+      {tags.map((tag) => (
+        <span class="meta-tag">#{tag}</span>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  time {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .meta-tags {
+    display: flex;
+    gap: 6px;
+  }
+
+  .meta-tag {
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+  }
+</style>

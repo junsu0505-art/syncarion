@@ -1,0 +1,65 @@
+---
+import PostMeta from './PostMeta.astro';
+import type { CategorySlug } from '../../consts';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  category: CategorySlug;
+  tags?: string[];
+  slug: string;
+  featured?: boolean;
+}
+
+const { title, description, pubDate, category, tags = [], slug, featured = false } = Astro.props;
+---
+
+<article class:list={['post-card', { featured }]}>
+  <a href={`/blog/${slug}`} class="card-link">
+    <PostMeta pubDate={pubDate} category={category} tags={tags} />
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+  </a>
+</article>
+
+<style>
+  .post-card {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: all 0.2s;
+  }
+
+  .post-card:first-child {
+    padding-top: 0;
+  }
+
+  .post-card.featured {
+    padding-left: 20px;
+    border-left: 2px solid var(--color-accent);
+  }
+
+  .card-link {
+    text-decoration: none;
+    display: block;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 12px 0 8px;
+    transition: color 0.2s;
+  }
+
+  .card-link:hover .card-title {
+    color: var(--color-accent);
+  }
+
+  .card-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-dim);
+    line-height: 1.6;
+  }
+</style>

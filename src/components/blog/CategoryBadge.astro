@@ -1,0 +1,38 @@
+---
+import { CATEGORIES, type CategorySlug } from '../../consts';
+
+interface Props {
+  category: CategorySlug;
+  linked?: boolean;
+}
+
+const { category, linked = true } = Astro.props;
+const info = CATEGORIES[category];
+---
+
+{linked ? (
+  <a href={`/blog/category/${category}`} class="badge">{info.label}</a>
+) : (
+  <span class="badge">{info.label}</span>
+)}
+
+<style>
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid var(--color-accent-dim);
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  a.badge:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+</style>
