@@ -14,3 +14,7 @@ PROGRESS.md
 HANDOFF.md
 notes/
 *.local.md
+
+# astro build output
+dist/
+.astro/
