@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="소개 — Syncarion" description="Syncarion은 AI로 사업의 핵심을 재설계하는 1인 빌더의 작업실입니다.">
+  <main class="about-page">
+    <div class="container">
+      <header class="page-header">
+        <div class="section-label">About</div>
+        <h1 class="section-title">부족해서 배우기 시작했습니다</h1>
+      </header>
+
+      <div class="about-content">
+        <section class="about-section">
+          <h2>Syncarion이란</h2>
+          <p>
+            Syncarion은 AI로 사업의 핵심을 재설계하는 1인 빌더의 작업실입니다.
+            "AI를 도입하고 싶은데 어디서부터 시작해야 할지 모르겠다"는 질문에 대한 답을
+            설계하고, 구축하고, 운영합니다.
+          </p>
+          <p>
+            단순한 외주 개발이 아닙니다. 사업 구조를 이해하고,
+            AI가 실제로 가치를 만드는 지점을 찾아 시스템으로 구축합니다.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>만드는 사람</h2>
+          <p>
+            Syncarion의 대표 Tom은 투자 도구와 개발 솔루션을 직접 만들고 운영하는 1인 빌더입니다.
+            금융 분석 플랫폼과 콘텐츠 자동화 시스템을 동시에 운영하며,
+            AI 에이전트 오케스트레이션부터 풀스택 프로덕트 빌딩까지 실전 경험을 쌓고 있습니다.
+          </p>
+          <ul class="credentials-list">
+            <li>Anthropic 파트너사 — Claude를 만든 Anthropic의 공식 파트너 네트워크 인증</li>
+            <li>2개 사업을 AI로 1인 운영 — 콘텐츠 자동 생산, 고객 응대, 데이터 수집까지 AI 시스템으로 구동</li>
+            <li>풀스택 프로덕트 빌딩 — 170+ 파일, 72개 API, 28개 DB 모델 규모의 프로덕트를 1인으로 설계·구축·운영</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>철학</h2>
+          <blockquote>
+            배우고, 만들고, 직접 운영하며 검증합니다.
+          </blockquote>
+          <p>
+            컨설팅만 하지 않습니다. 직접 만들고, 직접 운영하는 사람이 설계합니다.
+            이론이 아닌 실전에서 검증된 방법만을 제안합니다.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>연락처</h2>
+          <p>
+            무료 진단 상담이나 협업 문의는 <a href="/#contact">문의 폼</a>을 이용하시거나,
+            <a href="mailto:hello@syncarion.com">hello@syncarion.com</a>으로 연락해주세요.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding: 160px 0 80px;
+  }
+
+  .page-header {
+    margin-bottom: 64px;
+  }
+
+  .about-content {
+    max-width: 680px;
+  }
+
+  .about-section {
+    margin-bottom: 48px;
+  }
+
+  .about-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+    color: var(--color-text-dim);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .about-section a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .credentials-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .credentials-list li {
+    font-size: 0.9375rem;
+    color: var(--color-text-dim);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .credentials-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  blockquote {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-style: italic;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 24px;
+    margin: 24px 0;
+    color: var(--color-text);
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+/**
+ * Google AdSense ad slot component.
+ * Renders a placeholder in dev, actual ad unit in production.
+ *
+ * Prerequisites:
+ * 1. Set PUBLIC_ADSENSE_ID in .env (e.g., ca-pub-XXXXXXXXXX)
+ * 2. AdSense approval required before ads display
+ */
+
+interface Props {
+  slot: string;
+  format?: 'auto' | 'horizontal' | 'vertical' | 'rectangle';
+  className?: string;
+}
+
+const { slot, format = 'auto', className = '' } = Astro.props;
+const adsenseId = import.meta.env.PUBLIC_ADSENSE_ID;
+const isDev = import.meta.env.DEV;
+---
+
+{adsenseId && !isDev ? (
+  <div class:list={['ad-container', className]}>
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={adsenseId}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    />
+  </div>
+) : isDev ? (
+  <div class:list={['ad-placeholder', className]}>
+    <span>AD SLOT: {slot}</span>
+  </div>
+) : null}
+
+<style>
+  .ad-container {
+    margin: 32px 0;
+    min-height: 90px;
+  }
+
+  .ad-placeholder {
+    margin: 32px 0;
+    padding: 24px;
+    border: 1px dashed var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+  }
+
+  .ad-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+  }
+</style>

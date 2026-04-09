@@ -1,8 +1,9 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import AdSlot from '../components/ads/AdSlot.astro';
 import '../styles/prose.css';
 import { formatDate } from '../lib/date';
-import { CATEGORIES } from '../consts';
+import { CATEGORIES, SITE_URL } from '../consts';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -11,9 +12,27 @@ interface Props {
 
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, category, tags, author } = post.data;
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+  author: { '@type': 'Person', name: author },
+  publisher: { '@type': 'Organization', name: 'Syncarion' },
+  mainEntityOfPage: `${SITE_URL}/blog/${post.slug}/`,
+};
 ---
 
-<BaseLayout title={`${title} — Syncarion`} description={description}>
+<BaseLayout
+  title={`${title} — Syncarion`}
+  description={description}
+  ogType="article"
+  article={{ pubDate: pubDate.toISOString(), author }}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <article class="blog-post">
     <div class="container">
       <header class="post-header">
@@ -35,6 +54,7 @@ const { title, description, pubDate, updatedDate, category, tags, author } = pos
       <div class="prose">
         <slot />
       </div>
+      <AdSlot slot="post-bottom" format="horizontal" />
       {updatedDate && (
         <p class="updated-note">
           마지막 수정: {formatDate(updatedDate)}
