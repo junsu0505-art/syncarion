@@ -1,0 +1,79 @@
+---
+// Problem section — pain points
+---
+
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="section-label">Problem</div>
+    <h2 class="section-title">대부분의 AI 도입은<br>여기서 멈춥니다</h2>
+    <p class="section-desc">
+      ChatGPT 계정은 있는데, 사업에 실제로 적용하는 건 다른 문제입니다.
+    </p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h3>"뭘 자동화해야 하는지 모르겠어요"</h3>
+        <p>AI가 좋다는 건 아는데, 우리 사업의 어느 지점에 적용해야 효과가 있는지 판단이 안 됩니다.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h3>"외주 맡겼는데 쓸 수가 없어요"</h3>
+        <p>개발자는 코드를 짜주지만, 사업 맥락을 이해하지 못합니다. 결과물이 실무에 안 맞습니다.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h3>"만들어놓고 관리가 안 돼요"</h3>
+        <p>구축은 했는데 API가 바뀌고, 에러가 나고, 수정할 사람이 없습니다. 방치됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+  }
+
+  .problem-card {
+    background: var(--color-surface);
+    padding: 48px 36px;
+    transition: all 0.4s;
+  }
+
+  .problem-card:hover {
+    background: var(--color-surface-2);
+  }
+
+  .problem-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+
+  .problem-card h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .problem-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-dim);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .problem-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
