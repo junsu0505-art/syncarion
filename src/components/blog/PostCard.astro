@@ -17,7 +17,7 @@ const { title, description, pubDate, category, tags = [], slug, featured = false
 
 <article class:list={['post-card', { featured }]}>
   <a href={`/blog/${slug}`} class="card-link">
-    <PostMeta pubDate={pubDate} category={category} tags={tags} />
+    <PostMeta pubDate={pubDate} category={category} tags={tags} linkedCategory={false} />
     <h3 class="card-title">{title}</h3>
     <p class="card-desc">{description}</p>
   </a>

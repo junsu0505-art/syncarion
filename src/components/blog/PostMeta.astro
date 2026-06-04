@@ -7,13 +7,14 @@ interface Props {
   pubDate: Date;
   category: CategorySlug;
   tags?: string[];
+  linkedCategory?: boolean;
 }
 
-const { pubDate, category, tags = [] } = Astro.props;
+const { pubDate, category, tags = [], linkedCategory = true } = Astro.props;
 ---
 
 <div class="post-meta">
-  <CategoryBadge category={category} />
+  <CategoryBadge category={category} linked={linkedCategory} />
   <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
   {tags.length > 0 && (
     <div class="meta-tags">
