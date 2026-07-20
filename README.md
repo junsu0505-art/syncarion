@@ -88,7 +88,21 @@ Post content here...
 | `npm run format` | Prettier auto-fix |
 | `npm run format:check` | Prettier check |
 
-## Deployment
+## Branching & Deployment
 
-- Push to `main` → Vercel production deploy (syncarion.com)
-- Push to `dev` → Vercel preview deploy
+**작업은 `dev`, 실배포는 `main`.** Vercel이 브랜치별로 자동 배포한다:
+
+| Branch | Vercel | URL |
+|--------|--------|-----|
+| `main` | Production | syncarion.com |
+| `dev`  | Preview    | 프리뷰 URL |
+
+⚠️ **`dev`에만 푸시하면 실사이트(syncarion.com)에는 반영되지 않는다.** 라이브 반영이 목적이면 `dev`를 `main`에 병합한 뒤 `main`을 푸시해야 한다.
+
+```bash
+# dev에서 작업·커밋을 마친 뒤, 라이브 반영:
+git checkout main
+git merge --ff-only dev   # dev가 main보다 앞서 있으면 fast-forward
+git push origin main      # → Vercel production 배포
+git checkout dev          # 작업 브랜치로 복귀
+```

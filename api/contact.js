@@ -1,5 +1,6 @@
 // api/contact.js — Vercel Serverless Function
-// Resend API로 문의 이메일을 hello@syncarion.com으로 전송
+// Resend API로 문의 이메일을 master@decisionlabs.app으로 전송
+// 발신(from)은 Resend 인증 도메인 syncarion.com 유지 — decisionlabs.app은 미인증이면 발송 실패
 
 export default async function handler(req, res) {
   // CORS
@@ -37,7 +38,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Syncarion <noreply@syncarion.com>',
-        to: ['hello@syncarion.com'],
+        to: ['master@decisionlabs.app'],
         reply_to: email,
         subject: `[Syncarion] ${type} 문의 — ${name}`,
         html: `
@@ -87,8 +88,9 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Syncarion <hello@syncarion.com>',
+        from: 'Syncarion <noreply@syncarion.com>',
         to: [email],
+        reply_to: 'master@decisionlabs.app',
         subject: `[Syncarion] 상담 신청이 접수되었습니다`,
         html: `
           <div style="font-family: -apple-system, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px;">
