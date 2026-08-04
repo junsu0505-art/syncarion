@@ -1,0 +1,250 @@
+---
+// FeaturedCases — 케이스 스터디 밴드 3종 (증거 중심 리빌딩의 핵심 섹션)
+// 패턴: eyebrow 라벨 + 제목 + 태그 칩 + 스탯 트리오 + 시각 자산. 상세는 /portfolio.
+---
+
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-label">Featured Cases</div>
+    <h2 class="section-title">말이 아니라<br>운영 중인 시스템으로</h2>
+    <p class="section-desc">
+      제안하는 모든 구조는 본인 사업에서 먼저 상시 가동합니다. 아래는 그 일부입니다.
+    </p>
+  </div>
+
+  <!-- Case 1: HQ AI 조직 (시각 자산: 지식그래프) -->
+  <div class="case-band">
+    <div class="container case-grid">
+      <div class="case-text">
+        <div class="case-eyebrow">자체 · 상시 운영</div>
+        <h3>1인 사업자가 운영하는<br>AI 에이전트 회사, HQ</h3>
+        <p>
+          부서장 14명 편제의 AI 조직이 SaaS·외주 구축·교육·콘텐츠를 수행합니다.
+          프롬프트가 아니라 거버넌스 — 헌법·결재 게이트·자동 감사가
+          에이전트의 행동을 구조적으로 강제합니다.
+        </p>
+        <div class="case-tags">
+          <span>Multi-Agent</span><span>Governance</span><span>Live Ops</span>
+        </div>
+        <div class="case-stats">
+          <div><b>28</b><span>에이전트 편제</span></div>
+          <div><b>369</b><span>자체 감사 발견</span></div>
+          <div><b>0명</b><span>추가 고용</span></div>
+        </div>
+      </div>
+      <figure class="case-visual">
+        <img src="/portfolio/wiki-ontology-graph.png" alt="HQ 지식그래프 — 262노드 1,523엣지" loading="lazy" />
+        <figcaption>조직 기억: 위키 카드 271장 중 온톨로지 등재 262노드 / 1,523엣지</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Case 2: 마케팅 대행사 A (스탯 중심) -->
+  <div class="case-band alt">
+    <div class="container case-grid">
+      <div class="case-text">
+        <div class="case-eyebrow">외주 · Forward-Deployed</div>
+        <h3>1.4만 행 수기 시트를<br>2주 만에 백오피스로</h3>
+        <p>
+          컨설팅으로 들어가 실행 주체 부재를 확인하고, 직접 구축하는 방식으로
+          전환했습니다. 실데이터 전수 분석 → 규칙 역산 검증 → 작동 화면 3개 →
+          폐쇄망 이관 납품까지.
+        </p>
+        <div class="case-tags">
+          <span>AX 구축</span><span>데이터 이관</span><span>폐쇄망 납품</span>
+        </div>
+        <div class="case-stats">
+          <div><b>14,824</b><span>레거시 행 무손실 이관</span></div>
+          <div><b>2주</b><span>구축 기간</span></div>
+          <div><b>3</b><span>작동 화면</span></div>
+        </div>
+      </div>
+      <div class="case-visual case-quote">
+        <blockquote>
+          "규칙을 코드로 옮기려면<br>
+          먼저 그 규칙이 무엇인지<br>
+          증명해야 합니다."
+        </blockquote>
+        <p>기존 수기 계산을 역산 재현해 결과 완전 일치를 확인한 뒤에야 시스템화 — 진단은 인터뷰가 아니라 원본 데이터 전수로 시작합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 3: 데이터 파이프라인 -->
+  <div class="case-band">
+    <div class="container case-grid">
+      <div class="case-text">
+        <div class="case-eyebrow">자체 · 24/7 무인 가동</div>
+        <h3>데이터가 스스로<br>깨끗해지는 시스템</h3>
+        <p>
+          수집→계약 적재→품질 게이트→활용의 루프를 물리 분리된 3계층으로 구축.
+          앞 단계가 불량이면 뒤 단계가 자동 차단됩니다 — 알림이 아니라 차단으로,
+          불확실하면 멈추는 fail-closed 설계.
+        </p>
+        <div class="case-tags">
+          <span>Data Pipeline</span><span>Quality Gate</span><span>fail-closed</span>
+        </div>
+        <div class="case-stats">
+          <div><b>3계층</b><span>물리 분리 아키텍처</span></div>
+          <div><b>221</b><span>집행 계층 테스트</span></div>
+          <div><b>24/7</b><span>전용 서버 무인 가동</span></div>
+        </div>
+      </div>
+      <div class="case-visual case-diagram">
+        <div class="pipe">
+          <div class="pipe-node">수집<small>canonical 레이크</small></div>
+          <div class="pipe-arrow">→<em>건강 게이트</em></div>
+          <div class="pipe-node">연구<small>검증된 아티팩트</small></div>
+          <div class="pipe-arrow">→<em>계약 인터페이스</em></div>
+          <div class="pipe-node">집행<small>리스크 게이트</small></div>
+        </div>
+        <p class="pipe-note">실패 시 하류 자동 차단 — 더러운 데이터는 흐르지 못합니다</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container case-more">
+    <a href="/portfolio" class="btn-primary">전체 케이스 보기 →</a>
+  </div>
+</section>
+
+<style>
+  .cases { padding-bottom: 0; }
+
+  .case-band {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 88px 0;
+    margin-top: 64px;
+  }
+  .case-band.alt { background: var(--color-bg); border-bottom: none; }
+  .case-band + .case-band { margin-top: 0; border-top: none; }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .case-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .case-text h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .case-text > p {
+    color: var(--color-text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .case-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+  .case-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-dim);
+    border: 1px solid var(--color-border);
+    border-radius: 99px;
+    padding: 4px 12px;
+  }
+
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 22px;
+  }
+  .case-stats b {
+    display: block;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    line-height: 1.2;
+  }
+  .case-stats span { font-size: 0.74rem; color: var(--color-text-muted); }
+
+  .case-visual img {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    display: block;
+  }
+  .case-visual figcaption {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    margin-top: 10px;
+  }
+
+  .case-quote blockquote {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.45;
+    color: var(--color-text);
+    border-left: 2px solid var(--color-accent);
+    padding-left: 24px;
+    margin-bottom: 18px;
+  }
+  .case-quote p { font-size: 0.86rem; color: var(--color-text-dim); padding-left: 26px; }
+
+  .case-diagram .pipe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pipe-node {
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .pipe-node small {
+    display: block;
+    font-weight: 300;
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+  }
+  .pipe-arrow {
+    color: var(--color-accent);
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  .pipe-arrow em {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--color-text-muted);
+  }
+  .pipe-note {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin-top: 16px;
+  }
+
+  .case-more { padding: 56px 0 96px; text-align: center; }
+
+  @media (max-width: 860px) {
+    .case-grid { grid-template-columns: 1fr; gap: 36px; }
+    .case-band { padding: 56px 0; }
+  }
+</style>
