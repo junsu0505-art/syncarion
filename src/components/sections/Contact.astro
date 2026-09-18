@@ -12,6 +12,10 @@
     </p>
     <div class="contact-grid">
       <form class="contact-form" id="contact-form">
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-row">
           <div class="form-group">
             <label for="name">이름 / 회사명</label>
@@ -81,7 +85,8 @@
         name: formData.get('name'),
         email: formData.get('email'),
         type: formData.get('type'),
-        message: formData.get('message')
+        message: formData.get('message'),
+        website: formData.get('website') // honeypot — 사람은 비워둔다
       };
 
       if (!data.name || !data.email) {
@@ -191,6 +196,15 @@
 
   .channel-text a:hover {
     color: var(--color-accent);
+  }
+
+  /* Honeypot — 화면 밖으로 이동, 스크린리더는 aria-hidden 으로 건너뜀 */
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   /* Form */
